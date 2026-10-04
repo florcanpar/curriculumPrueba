@@ -1,0 +1,89 @@
+/* ==========================================================
+   estilos.css  ·  Nuestros estilos propios, encima de Bootstrap
+   ----------------------------------------------------------
+   Este archivo se carga DESPUÉS de bootstrap.min.css (mira el
+   <head> de index.html). Si dos reglas tienen la misma fuerza,
+   gana la que va después, así que aquí podemos cambiar cosas
+   de Bootstrap sin tocar sus archivos.
+
+   Colores usados (sacados del currículum):
+     violeta  #4a1f7c   ·   violeta oscuro  #321158
+     lila     #e3c8f5   ·   carbón (fondo oscuro)  #1c1a22
+   ========================================================== */
+
+/* 1) Colores y fuente de Bootstrap.
+      Las variables que empiezan por --bs- son DE BOOTSTRAP 5.3:
+      si las cambiamos aquí, Bootstrap cambia sus colores y su fuente. */
+:root {
+  --bs-primary: #4a1f7c;
+  --bs-primary-rgb: 74, 31, 124;
+  --bs-link-color: #4a1f7c;
+  --bs-link-hover-color: #321158;
+  --bs-body-font-family: "Figtree", system-ui, "Segoe UI", Roboto, sans-serif;
+  --bs-body-font-size: 17px;
+}
+
+/* 2) Al pulsar un enlace del menú, la página salta a la sección.
+      Como el menú está fijo arriba, tapaba el título; con este
+      margen de 72px el título queda visible. */
+html {
+  scroll-padding-top: 72px;
+}
+
+/* 3) Títulos con otra tipografía (serif). */
+h1, h2, h3, .navbar-brand {
+  font-family: "Gloock", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+/* 4) Título con mi nombre y título con mis apellidos (portada). */
+.tituloMiNombre {
+  font-size: 72px;
+  line-height: 1;
+  color: #4a1f7c;
+}
+.tituloMisApellidos {
+  font-size: 48px;
+  line-height: 1;
+  color: #4a1f7c;
+}
+
+/* 5) Fondo oscuro del menú, de la sección de habilidades y del pie. */
+.fondoOscuro {
+  background-color: #1c1a22;
+}
+
+/* 6) Títulos en color lila, para leerlos sobre fondo oscuro. */
+.tituloClaro {
+  color: #e3c8f5;
+}
+
+/* 7) Etiquetas de habilidades. Usan .badge y .rounded-pill de
+      Bootstrap; aquí solo cambiamos tamaño, borde y color. */
+.etiquetaHabilidadTecnica {
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+.etiquetaHabilidadBlanda {
+  font-size: 14px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid #e3c8f5;
+  color: #e3c8f5;
+}
+
+/* 8) Año de cada estudio: que no se parta en dos líneas. */
+.anioDelEstudio {
+  white-space: nowrap;
+}
+
+/* 9) Enlace activo del menú. Bootstrap (Scrollspy) le añade la
+      clase .active al enlace de la sección que estás viendo. */
+.navbar .nav-link.active {
+  color: #e3c8f5;
+  text-decoration: underline;
+}

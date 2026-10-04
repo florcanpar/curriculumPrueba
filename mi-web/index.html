@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- BOOTSTRAP · Paso 1: el "viewport".
+       Sin esta línea, el móvil dibuja la página como si fuese un monitor
+       pequeño y las clases responsive de Bootstrap no funcionan. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Flor Canillo Pardo · Desarrolladora de Aplicaciones Web</title>
+  <meta name="description" content="Currículum web de Flor Canillo Pardo, Técnico Superior en Desarrollo de Aplicaciones Web.">
+
+  <!-- Fuentes de Google (opcional, solo estética) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Gloock&display=swap" rel="stylesheet">
+
+  <!-- BOOTSTRAP · Paso 2: el CSS.
+       Se carga desde una CDN (red de servidores públicos), así que no
+       hay que descargar ni instalar nada. "5.3.3" fija la versión para
+       que la web no cambie si sale una nueva. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Nuestros estilos, DESPUÉS de Bootstrap para poder personalizarlo -->
+  <link href="css/estilos.css" rel="stylesheet">
+</head>
+
+<!-- BOOTSTRAP · Scrollspy: con data-bs-spy, Bootstrap vigila qué sección
+     estás viendo y marca como "active" el enlace del menú (#menu) que
+     corresponde. No hay que escribir nada de JavaScript. -->
+<body data-bs-spy="scroll" data-bs-target="#menu" data-bs-smooth-scroll="true"
+      data-bs-root-margin="0px 0px -55%" tabindex="0">
+
+  <!-- ======================= MENÚ =======================
+       .navbar          → componente de barra de navegación
+       .navbar-expand-lg→ en pantallas ≥992px se muestra en horizontal;
+                          en menores, se esconde tras el botón "hamburguesa"
+       .fixed-top       → se queda pegada arriba al hacer scroll
+       data-bs-theme="dark" → modo oscuro de Bootstrap 5.3: cambia los
+                          colores de texto y fondo del componente entero -->
+  <nav class="navbar navbar-expand-lg fixed-top fondoOscuro" data-bs-theme="dark">
+    <!-- .container → caja centrada con ancho máximo que cambia según la pantalla -->
+    <div class="container">
+      <a class="navbar-brand" href="#inicio">Flor Canillo</a>
+
+      <!-- Botón hamburguesa: data-bs-toggle="collapse" + data-bs-target
+           le dice a Bootstrap qué elemento mostrar/ocultar. -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#menu" aria-controls="menu" aria-expanded="false"
+              aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <!-- ms-auto = margin-start: auto → empuja la lista hacia la derecha -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#formacion">Formación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ======================= PORTADA =======================
+         Clases de espaciado (utilidades): py-5 = padding arriba y abajo.
+         La fórmula es {propiedad}{lado}-{tamaño}:
+           m = margin, p = padding · t/b/s/e/x/y = lados · 0 a 5 = tamaño
+         Ejemplos: mt-3, mb-4, px-2, py-5 -->
+    <section id="inicio" class="py-5">
+      <div class="container pt-5">
+
+        <!-- SISTEMA DE REJILLA (grid): lo más importante de Bootstrap.
+             • .row    → una fila
+             • .col-*  → columnas; cada fila se divide en 12 partes
+             • col-lg-7 + col-lg-5 = 12 → en pantallas grandes (≥992px) el
+               texto ocupa 7/12 y la imagen 5/12.
+             • En pantallas pequeñas, como no hay col-* "base", cada columna
+               ocupa el 100% y se apilan una debajo de otra. Eso es "mobile first".
+             Breakpoints: sm 576px · md 768px · lg 992px · xl 1200px · xxl 1400px
+             • .align-items-center → centra las columnas en vertical
+             • .g-5 → separación (gutter) entre columnas -->
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-7">
+            <!-- TÍTULO PRINCIPAL (h1) -->
+            <h1 class="tituloMiNombre mb-0">Flor</h1>
+            <p class="tituloMisApellidos fs-1 mb-4" role="presentation">Canillo Pardo</p>
+
+            <!-- PÁRRAFO. .lead = texto destacado, más grande -->
+            <p class="lead">
+              Técnico Superior en Desarrollo de Aplicaciones Web con experiencia
+              en frontend y backend, en busca de su primera oportunidad laboral.
+            </p>
+          </div>
+
+          <div class="col-lg-5">
+            <!-- IMAGEN. .img-fluid = max-width:100% y height:auto → la imagen
+                 nunca se sale de su columna. .rounded = esquinas redondeadas.
+                 .shadow = sombra. El atributo alt describe la imagen. -->
+            <img src="img/gatito.jpg" class="img-fluid rounded shadow" alt="Gatito atigrado sentado en un sofá, mirando a cámara">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= SOBRE MÍ ======================= -->
+    <section id="sobre-mi" class="py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Aquí solo ponemos col-lg-8 para que el párrafo no sea
+               demasiado ancho: las líneas largas cuestan de leer. -->
+          <div class="col-lg-8">
+            <h2 class="mb-4 text-primary">Sobre mí</h2>
+            <p>
+              Soy Técnico Superior en Desarrollo de Aplicaciones Web. He
+              desarrollado proyectos a nivel de prácticas, tanto de frontend
+              como de backend.
+            </p>
+            <p>
+              Busco una oportunidad laboral donde pueda aportar, seguir
+              formándome y aprender de compañeros con más experiencia en el sector.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FORMACIÓN ======================= -->
+    <section id="formacion" class="py-5 bg-body-tertiary">
+      <div class="container">
+        <h2 class="mb-4 text-primary">Formación</h2>
+
+        <div class="row g-5">
+
+          <!-- Dos columnas iguales en pantallas medianas: col-md-6 -->
+          <div class="col-md-6">
+            <h3 class="h4 mb-3">Estudios</h3>
+
+            <!-- COMPONENTE list-group: lista con estilo.
+                 .list-group-flush quita los bordes laterales.
+                 Dentro de cada <li>, .d-flex + .justify-content-between
+                 coloca el texto a la izquierda y el año a la derecha. -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-transparent px-0 d-flex justify-content-between gap-3">
+                <span>
+                  <strong class="d-block">Desarrollo de Aplicaciones Web</strong>
+                  Fernando III, Martos
+                </span>
+                <span class="anioDelEstudio text-body-secondary">2024-2027</span>
+              </li>
+              <li class="list-group-item bg-transparent px-0 d-flex justify-content-between gap-3">
+                <span>
+                  <strong class="d-block">Programación Web en Entorno Servidor</strong>
+                  Fernando III, Martos
+                </span>
+                <span class="anioDelEstudio text-body-secondary">2023-2024</span>
+              </li>
+              <li class="list-group-item bg-transparent px-0 d-flex justify-content-between gap-3">
+                <span>
+                  <strong class="d-block">Sistemas Microinformáticos y Redes</strong>
+                  Miguel Sánchez López, Torredelcampo
+                </span>
+                <span class="anioDelEstudio text-body-secondary">2021-2023</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h3 class="h4 mb-3">Cursos en OpenWebinars</h3>
+
+            <!-- LISTA NUMERADA/SIMPLE con HTML normal. .ps-3 = padding izquierdo. -->
+            <ul class="ps-3">
+              <li>Crea apps de escritorio con JavaFX</li>
+              <li>SQL Server desde cero</li>
+              <li>Introducción a pruebas automáticas con JUnit 5</li>
+              <li>JavaScript: Fundamentos</li>
+              <li>LPIC-1 Examen 101: Tema 103 – Comandos UNIX y GNU</li>
+              <li>Curso de Clean Code</li>
+              <li>HTML5 y CSS3</li>
+              <li>Creación de BBDD para eCommerce con MySQL</li>
+              <li>Onboarding de Becas OpenWebinars</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= HABILIDADES (sección oscura) =======================
+         data-bs-theme="dark" en una <section> hace que TODO lo que hay dentro
+         use los colores oscuros de Bootstrap (texto claro, enlaces claros...). -->
+    <section id="habilidades" class="py-5 fondoOscuro" data-bs-theme="dark">
+      <div class="container">
+
+        <h2 class="mb-4 tituloClaro">Hard skills</h2>
+
+        <!-- .badge = etiqueta pequeña · .rounded-pill = bordes totalmente redondos
+             Usamos .d-flex .flex-wrap .gap-2 para colocarlas en filas flexibles. -->
+        <ul class="list-unstyled d-flex flex-wrap gap-2 mb-5">
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Inglés C1 Cambridge</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Windows Server</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">HTML</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">CSS</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">JavaScript</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">MySQL</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Git</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Java</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">XML</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">PHP</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Docker</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">React</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Flexbox</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Tailwind</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Angular</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadTecnica">Spring Boot</span></li>
+        </ul>
+
+        <h2 class="mb-4 tituloClaro">Soft skills</h2>
+        <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
+          <li><span class="badge rounded-pill etiquetaHabilidadBlanda">Organización</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadBlanda">Creatividad</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadBlanda">Comunicación</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadBlanda">Adaptabilidad</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadBlanda">Rápido aprendizaje</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadBlanda">Paciencia</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadBlanda">Atención al detalle</span></li>
+          <li><span class="badge rounded-pill etiquetaHabilidadBlanda">Resolución de problemas</span></li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ======================= CONTACTO ======================= -->
+    <section id="contacto" class="py-5 bg-body-tertiary">
+      <div class="container">
+        <h2 class="mb-4 text-primary">Contacto</h2>
+
+        <div class="row">
+          <div class="col-lg-8">
+            <p>Si quieres hablar conmigo sobre una oportunidad, escríbeme o llámame.</p>
+
+            <!-- Enlaces (<a>). mailto: abre el correo y tel: marca el teléfono
+                 desde el móvil. target="_blank" abre en pestaña nueva;
+                 rel="noopener" es una medida de seguridad al hacerlo. -->
+            <ul class="list-unstyled fs-5">
+              <li class="mb-2">
+                Correo:
+                <a href="mailto:florcanillopardo@gmail.com">florcanillopardo@gmail.com</a>
+              </li>
+              <li class="mb-2">
+                Teléfono:
+                <a href="tel:+34646110579">+34 646 11 05 79</a>
+              </li>
+              <li class="mb-2">
+                GitHub:
+                <a href="https://github.com/florcanpar" target="_blank" rel="noopener">florcanpar</a>
+              </li>
+              <li>
+                LinkedIn:
+                <!-- Cambia "#" por la URL real de tu perfil de LinkedIn -->
+                <a href="#" target="_blank" rel="noopener">Flor Canillo Pardo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="fondoOscuro text-center py-4" data-bs-theme="dark">
+    <div class="container">
+      <p class="mb-0 small">© 2026 Flor Canillo Pardo · Página estática con Bootstrap, alojada en Netlify</p>
+    </div>
+  </footer>
+
+  <!-- BOOTSTRAP · Paso 3: el JavaScript.
+       Es lo que hace funcionar el menú hamburguesa y el Scrollspy.
+       "bundle" ya incluye Popper (para tooltips y desplegables).
+       Va al final del <body> para que la página se vea antes de cargarlo. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
